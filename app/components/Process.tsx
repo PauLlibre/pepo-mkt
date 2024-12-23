@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import BookACallButton from "./BookACallButton";
 
 // Example waypoints (adjust threshold and data as you wish)
 const WAYPOINTS: Waypoint[] = [
