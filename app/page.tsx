@@ -13,7 +13,9 @@ export default function Home() {
       <Intro />
       <Statistics />
       <WhyUs />
-      <Process />
+      <div className="hidden lg:block w-full">
+        <Process />
+      </div>
       <CalendlyScheduler />
       <Footer />
     </div>

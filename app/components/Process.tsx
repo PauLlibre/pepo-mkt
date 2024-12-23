@@ -58,11 +58,18 @@ export default function Process() {
     const handleScroll = () => {
       if (!processRef.current) return;
 
-      const elementTop = processRef.current.offsetTop;
+      // const rect = processRef.current.getBoundingClientRect();  (We won't use getBoundingClientRect here)
+      // Instead, let's compute offsets in relation to the entire page
+      const elementTop = processRef.current.offsetTop; // distance from page top to element top
       const elementHeight = processRef.current.offsetHeight;
       const elementBottom = elementTop + elementHeight;
+
+      // currentScrollBottom is how far the bottom of the viewport is from the top of the page
       const currentScrollBottom = window.scrollY + window.innerHeight;
 
+      // progress = how far the bottom of viewport has traveled into the element
+      //  - If currentScrollBottom < elementTop, progress < 0
+      //  - If currentScrollBottom > elementBottom, progress > 1
       let newProgress =
         (currentScrollBottom - elementTop) / (elementBottom - elementTop);
 
@@ -81,7 +88,10 @@ export default function Process() {
       setPassedWaypoints(newPassedWaypoints);
     };
 
+    // Listen to the window scroll event
     window.addEventListener("scroll", handleScroll);
+
+    // Initial check
     handleScroll();
 
     return () => {
@@ -89,15 +99,20 @@ export default function Process() {
     };
   }, []);
 
+  // Convert progress (0 -> 1) to a percentage string
   const fillPercent = `${(progress * 100).toFixed(1)}%`;
 
   return (
-    <div className="p-4 sm:p-20 md:p-40">
+    <div className="p-40">
+      {/* 
+        This extra-tall div ensures we have enough page height to scroll.
+        Adjust the height to suit your content needs. 
+      */}
       <div
         ref={processRef}
         className="relative w-full h-[100vh] flex justify-center items-start"
       >
-        {/* Background line */}
+        {/* The background line (gray), spanning the full page height. */}
         <div
           className="
             absolute 
@@ -110,7 +125,7 @@ export default function Process() {
           "
         />
 
-        {/* Progress line */}
+        {/* The filled line (#ff4500) that grows as we scroll. */}
         <div
           className="
             absolute
@@ -124,11 +139,11 @@ export default function Process() {
             ease-linear
           "
           style={{
-            height: fillPercent,
+            height: fillPercent, // fill from the top down
           }}
         />
 
-        {/* Waypoints */}
+        {/* Waypoints (dots) */}
         {WAYPOINTS.map((wp) => {
           const dotTop = `${wp.threshold * 100}%`;
           const isPastThreshold = progress >= wp.threshold;
@@ -136,12 +151,13 @@ export default function Process() {
           return (
             <div
               key={wp.id}
-              className="absolute left-1/2 -translate-x-1/2 w-4 sm:w-5 md:w-6 h-4 sm:h-5 md:h-6 rounded-full bg-gray-700"
+              className="absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-gray-700"
               style={{
                 top: dotTop,
                 transform: "translate(-50%, -50%)",
               }}
             >
+              {/* If we are past this waypoint's threshold, color it #ff4500 */}
               {isPastThreshold && (
                 <div className="w-full h-full bg-[#ff4500] rounded-full opacity-70" />
               )}
@@ -149,21 +165,18 @@ export default function Process() {
           );
         })}
 
-        {/* Info panels */}
+        {/* Info panels for all passed waypoints */}
         {WAYPOINTS.filter((wp) => passedWaypoints.has(wp.id)).map((wp) => (
           <div
             key={wp.id}
             className={`
               absolute
-              ${wp.side === "left" 
-                ? "left-2 sm:left-40 md:left-80" 
-                : "right-2 sm:right-40 md:right-80"
-              }
+              ${wp.side === "left" ? "left-80" : "right-80"}
               text-white
-              p-3 sm:p-4
+              p-4
               rounded
               shadow-lg
-              w-[calc(100%-2rem)] sm:w-64 md:w-80
+              w-80
               transition-all
               duration-300
             `}
@@ -172,17 +185,15 @@ export default function Process() {
               transform: "translateY(-50%)",
             }}
           >
-            <h2 className="font-bold text-lg sm:text-xl mb-1 sm:mb-2 text-[#ff4500]">{wp.step}</h2>
-            <h2 className="font-bold text-xl sm:text-2xl mb-1 sm:mb-2">{wp.title}</h2>
-            <p className="text-sm sm:text-base transition-shadow duration-300">
+            <h2 className="font-bold text-xl mb-2 text-[#ff4500]">{wp.step}</h2>
+            <h2 className="font-bold text-2xl mb-2">{wp.title}</h2>
+            <p className="transition-shadow duration-300">
               {wp.description}
             </p>
           </div>
         ))}
       </div>
-      <div className="flex justify-center text-base sm:text-lg md:text-xl items-center pt-10 sm:pt-16 md:pt-20">
-        <BookACallButton />
-      </div>
+      
     </div>
   );
 }
