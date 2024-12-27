@@ -101,7 +101,7 @@ export default {
       backgroundImage: {
         // Feel free to rename 'hero-gradient' to whatever fits your project
         "hero-gradient":
-          "radial-gradient(circle at top right, #ff4500 0%, #0a0a0a 30%)",
+          "radial-gradient(circle at top right, #ff4500 0%, #0a0a0a 20%)",
       },
     },
   },

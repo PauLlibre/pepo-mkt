@@ -1,5 +1,5 @@
 import Image from "next/image";
-import phone from "@/common/images/phone.png";
+import Logo from "@/common/images/logo_white.png";
 
 export default function Intro() {
   return (
@@ -9,11 +9,11 @@ export default function Intro() {
       </h1>
       <div className="flex items-center justify-center pt-4 sm:pt-8 md:pt-20 w-full">
         <Image 
-          src={phone} 
-          alt="phone" 
-          width={300}
-          height={300}
-          className="animate-slideFromRight w-[250px] sm:w-[300px] md:w-[400px]"
+          src={Logo} 
+          alt="Altuum logo" 
+          width={800}
+          height={800}
+          className="animate-slideFromRight w-[800px] sm:w-[300px] md:w-[800px]"
           priority
         />
       </div>

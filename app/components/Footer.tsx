@@ -27,7 +27,7 @@ export default function Footer() {
             <Linkedin className="h-5 w-5 sm:h-6 sm:w-6" />
           </a>
           <a 
-            href="mailto:contacto@altuum.com"
+            href="mailto:josepballes@altuum.com"
             className="hover:text-primary transition-colors"
           >
             <Mail className="h-5 w-5 sm:h-6 sm:w-6" />
