@@ -1,31 +1,78 @@
-import Image from "next/image";
-import Logo from "@/common/images/logo_white.png";
-import BookACallButton from "./BookACallButton";
+import BookACallButton from "./BookACallButton"
+import AnimatedSection from "./AnimatedSection"
+import TextReveal from "./TextReveal"
+import { ArrowRight, BarChart2, Search, TrendingUp } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function Intro() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center w-full px-4 sm:px-6 md:px-8 gap-8">
-      <div className="w-full md:w-3/4">
-        <h1 className="text-2xl lg:pl-20 sm:text-justify sm:text-3xl md:text-4xl font-bold text-center md:text-left animate-slideFromLeft pt-8 sm:pt-12 md:pt-20 leading-tight">
-          Soluciones estratégicas de marketing digital para destacar en el mercado español. Optimización SEO, publicidad efectiva y más para alcanzar tus objetivos online.
-        </h1>
-        <p className="lg:pl-20 text-center md:text-left animate-slideFromLeft mt-4 text-gray-300 font-bold pt-10">
-          Impulsamos tu negocio al siguiente nivel. Con un ROI inmenso
-        </p>
-        <div className="lg:pl-20 pt-10">
-          <BookACallButton />
+    <div id="hero" className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-16 overflow-hidden">
+      {/* Background gradient circles */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#ff4500]/20 rounded-full filter blur-3xl -z-10"></div>
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-[#ff4500]/10 rounded-full filter blur-3xl -z-10"></div>
+
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <AnimatedSection direction="left" className="order-2 lg:order-1">
+          <div className="space-y-6 relative z-10">
+            {/* Add subtle background for better text readability */}
+            <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-2xl -z-10"></div>
+            <div className="p-6">
+              <div className="inline-block px-4 py-2 bg-[#ff4500]/10 backdrop-blur-sm rounded-full text-sm font-medium text-[#ff4500] mb-4">
+                Agencia de Marketing Digital Líder en España
+              </div>
+
+              <TextReveal className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+                <h1>
+                  Impulsa tu <span className="text-[#ff4500]">Presencia Digital</span> al Siguiente Nivel
+                </h1>
+              </TextReveal>
+
+              <AnimatedSection direction="up" delay={0.3} className="text-xl text-gray-300 mt-6">
+                <p>
+                  Estrategias personalizadas que generan resultados medibles. Optimizamos cada aspecto de tu marketing
+                  digital para maximizar tu ROI.
+                </p>
+              </AnimatedSection>
+
+              <AnimatedSection direction="up" delay={0.5} className="flex flex-col sm:flex-row gap-4 pt-8">
+                <BookACallButton />
+              </AnimatedSection>
+
+              <AnimatedSection direction="up" delay={0.7} className="pt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ff4500]/20">
+                    <TrendingUp className="h-5 w-5 text-[#ff4500]" />
+                  </div>
+                  <span className="text-sm font-medium">ROI Garantizado</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ff4500]/20">
+                    <Search className="h-5 w-5 text-[#ff4500]" />
+                  </div>
+                  <span className="text-sm font-medium">SEO Avanzado</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ff4500]/20">
+                    <BarChart2 className="h-5 w-5 text-[#ff4500]" />
+                  </div>
+                  <span className="text-sm font-medium">Análisis Detallado</span>
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+        <div className="text-sm font-medium text-gray-400 mb-2">Descubre Más</div>
+        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+          <div className="w-1.5 h-3 bg-gray-400 rounded-full mt-2 animate-[slideUp_1.5s_ease-in-out_infinite]"></div>
         </div>
       </div>
-      <div className="flex items-center justify-center pt-4 sm:pt-8 md:pt-20 w-full">
-        <Image 
-          src={Logo} 
-          alt="Altuum logo" 
-          width={800}
-          height={800}
-          className="animate-slideFromRight w-[800px] sm:w-[300px] md:w-[800px]"
-          priority
-        />
-      </div>
     </div>
-  );
+  )
 }
+

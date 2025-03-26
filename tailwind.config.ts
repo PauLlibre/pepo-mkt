@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 export default {
   darkMode: ["class"],
@@ -95,15 +95,15 @@ export default {
         slideFromRight: "slideFromRight 1s ease-out forwards",
         slideFromTop: "slideFromTop 1s ease-out forwards",
         slideFromBottom: "slideFromBottom 1s ease-out forwards",
-		slideUp: "slideUp 0.6s ease-out forwards",
+        slideUp: "slideUp 0.6s ease-out forwards",
       },
 
       backgroundImage: {
         // Feel free to rename 'hero-gradient' to whatever fits your project
-        "hero-gradient":
-          "radial-gradient(circle at top right, #ff4500 0%, #0a0a0a 20%)",
+        "hero-gradient": "radial-gradient(circle at top right, #ff4500 0%, #0a0a0a 20%)",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+} satisfies Config
+
