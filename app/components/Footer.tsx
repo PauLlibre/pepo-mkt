@@ -1,4 +1,4 @@
-import { Mail, Instagram, Linkedin, ArrowRight } from "lucide-react"
+import { Mail, Instagram, Linkedin, ArrowRight, Facebook } from "lucide-react"
 import AnimatedSection from "./AnimatedSection"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -18,16 +18,16 @@ export default function Footer() {
                 y un ROI excepcional.
               </p>
               <div className="flex space-x-4">
-                <a
-                  href="https://instagram.com"
+                {/* <a
+                  href="https://www.instagram.com/altuum/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#ff4500]/20 transition-colors"
                 >
                   <Instagram className="h-5 w-5" />
-                </a>
+                </a> */}
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/company/altuum/?viewAsMember=true"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#ff4500]/20 transition-colors"
@@ -40,6 +40,12 @@ export default function Footer() {
                 >
                   <Mail className="h-5 w-5" />
                 </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61571638162140"
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#ff4500]/20 transition-colors"
+                >
+                  <Facebook className="h-5 w-5" />
+                </a>
               </div>
             </div>
           </AnimatedSection>
@@ -47,7 +53,7 @@ export default function Footer() {
           <AnimatedSection direction="up" delay={0.2} className="space-y-6">
             <h3 className="text-lg font-semibold">Enlaces Rápidos</h3>
             <ul className="space-y-3">
-              {["Inicio", "Servicios", "Casos de Éxito", "Proceso", "Sobre Nosotros", "Blog"].map((item, index) => (
+              {["Inicio", "Servicios", "Proceso", "Sobre Nosotros"].map((item, index) => (
                 <li key={index}>
                   <a href="#" className="text-gray-400 hover:text-[#ff4500] transition-colors flex items-center">
                     <span className="w-1.5 h-1.5 bg-[#ff4500] rounded-full mr-2"></span>
@@ -61,12 +67,12 @@ export default function Footer() {
           <AnimatedSection direction="up" delay={0.4} className="space-y-6">
             <h3 className="text-lg font-semibold">Contacto</h3>
             <ul className="space-y-3 text-gray-400">
-              <li>Madrid, España</li>
-              <li>+34 912 345 678</li>
-              <li>info@altuum.com</li>
+              <li>Barcelona, España</li>
+              <li>+34 633 661 562</li>
+              <li>josepballes@altuum.com</li>
             </ul>
 
-            <div className="pt-4">
+            {/* <div className="pt-4">
               <h3 className="text-lg font-semibold mb-3">Newsletter</h3>
               <div className="flex space-x-2">
                 <Input
@@ -78,7 +84,7 @@ export default function Footer() {
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>
-            </div>
+            </div> */}
           </AnimatedSection>
         </div>
 

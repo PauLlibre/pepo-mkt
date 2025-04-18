@@ -1,0 +1,56 @@
+{
+  "glyphs": {
+    "A": {
+      "ha": 800,
+      "x_min": 0,
+      "x_max": 800,
+      "o": "m 0 0 l 400 800 l 800 0 l 600 0 l 400 600 l 200 0 z"
+    },
+    "L": {
+      "ha": 700,
+      "x_min": 0,
+      "x_max": 700,
+      "o": "m 0 0 l 0 800 l 200 800 l 200 200 l 700 200 l 700 0 z"
+    },
+    "T": {
+      "ha": 800,
+      "x_min": 0,
+      "x_max": 800,
+      "o": "m 300 0 l 300 600 l 0 600 l 0 800 l 800 800 l 800 600 l 500 600 l 500 0 z"
+    },
+    "U": {
+      "ha": 800,
+      "x_min": 0,
+      "x_max": 800,
+      "o": "m 0 800 l 200 800 l 200 200 l 600 200 l 600 800 l 800 800 l 800 300 q 800 0 400 0 q 0 0 0 300 z"
+    },
+    "M": {
+      "ha": 900,
+      "x_min": 0,
+      "x_max": 900,
+      "o": "m 0 0 l 0 800 l 200 800 l 450 400 l 700 800 l 900 800 l 900 0 l 700 0 l 700 400 l 450 0 l 200 400 l 200 0 z"
+    }
+  },
+  "familyName": "Aftika Bold",
+  "ascender": 800,
+  "descender": -200,
+  "underlinePosition": -100,
+  "underlineThickness": 50,
+  "boundingBox": {
+    "yMin": -200,
+    "xMin": 0,
+    "yMax": 800,
+    "xMax": 900
+  },
+  "resolution": 64,
+  "original_font_information": {
+    "format": 0,
+    "copyright": "Custom font for ALTUUM",
+    "fontFamily": "Aftika",
+    "fontSubfamily": "Bold",
+    "uniqueID": "Aftika Bold",
+    "fullName": "Aftika Bold",
+    "version": "Version 1.0",
+    "postScriptName": "Aftika-Bold"
+  }
+}

@@ -17,9 +17,9 @@ export default function Intro() {
             {/* Add subtle background for better text readability */}
             <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-2xl -z-10"></div>
             <div className="p-6">
-              <div className="inline-block px-4 py-2 bg-[#ff4500]/10 backdrop-blur-sm rounded-full text-sm font-medium text-[#ff4500] mb-4">
+              {/* <div className="inline-block px-4 py-2 bg-[#ff4500]/10 backdrop-blur-sm rounded-full text-sm font-medium text-[#ff4500] mb-4">
                 Agencia de Marketing Digital Líder en España
-              </div>
+              </div> */}
 
               <TextReveal className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
                 <h1>

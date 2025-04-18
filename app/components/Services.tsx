@@ -32,12 +32,12 @@ const SERVICES = [
     description: "Estrategias para redes sociales que conectan con tu audiencia y fortalecen tu marca.",
     color: "from-pink-500 to-pink-700",
   },
-  {
-    icon: <Mail className="h-6 w-6" />,
-    title: "Email Marketing",
-    description: "Campañas personalizadas que nutren leads y convierten prospectos en clientes fieles.",
-    color: "from-green-500 to-green-700",
-  },
+  // {
+  //   icon: <Mail className="h-6 w-6" />,
+  //   title: "Email Marketing",
+  //   description: "Campañas personalizadas que nutren leads y convierten prospectos en clientes fieles.",
+  //   color: "from-green-500 to-green-700",
+  // },
   {
     icon: <Globe className="h-6 w-6" />,
     title: "Diseño Web",
@@ -92,17 +92,17 @@ export default function Services() {
                 </div>
                 <h3 className="text-xl font-bold mb-3 group-hover:text-[#ff4500] transition-colors">{service.title}</h3>
                 <p className="text-gray-400 mb-6 flex-grow">{service.description}</p>
-                <Button variant="ghost" size="sm" className="w-fit group/btn">
+                {/* <Button variant="ghost" size="sm" className="w-fit group/btn">
                   Saber más <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                </Button>
+                </Button> */}
               </div>
             </AnimatedSection>
           ))}
         </div>
 
-        <AnimatedSection direction="up" delay={0.8} className="mt-12 text-center">
+        {/* <AnimatedSection direction="up" delay={0.8} className="mt-12 text-center">
           <Button className="bg-[#ff4500] hover:bg-[#ff5a1f] text-white">Ver todos los servicios</Button>
-        </AnimatedSection>
+        </AnimatedSection> */}
       </div>
     </div>
   )

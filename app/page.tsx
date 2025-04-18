@@ -6,7 +6,7 @@ import WhyUs from "./components/WhyUs"
 import CalendlyScheduler from "./components/Calendly"
 import Footer from "./components/Footer"
 import Services from "./components/Services"
-import Testimonials from "./components/Testimonials"
+// import Testimonials from "./components/Testimonials"
 // import CaseStudies from "./components/CaseStudies"
 import ThreeBackground from "./components/ThreeBackground"
 import BackgroundOverlay from "./components/BackgroundOverlay"
@@ -23,7 +23,7 @@ export default function Home() {
       <Process />
       <WhyUs />
       {/* <CaseStudies /> */}
-      <Testimonials />
+      {/* <Testimonials /> */}
       <CalendlyScheduler />
       <Footer />
     </main>
