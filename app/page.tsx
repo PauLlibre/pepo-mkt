@@ -1,4 +1,4 @@
-import Header from "./components/header"
+ import Header from "./components/header"
 import Intro from "./components/intro"
 import Statistics from "./components/statistics"
 import Process from "./components/Process"
@@ -18,7 +18,7 @@ export default function Home() {
       <BackgroundOverlay />
       <Header />
       <Intro />
-      <Statistics />
+      {/* <Statistics /> */}
       <Services />
       <Process />
       <WhyUs />

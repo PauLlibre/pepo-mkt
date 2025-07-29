@@ -13,6 +13,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollToPlugin)
 }
 
+
 const NAV_ITEMS = [
   { label: "Inicio", href: "#hero" },
   { label: "Servicios", href: "#services" },
@@ -23,6 +24,8 @@ const NAV_ITEMS = [
 ]
 
 export default function Header() {
+
+  const [activeSection, setActiveSection] = useState<string | null> (null)
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -52,7 +55,33 @@ export default function Header() {
       // Kill GSAP animations on unmount
       tl.kill()
     }
+
+    
   }, [])
+
+  useEffect(() => {
+  const sections = NAV_ITEMS.map(item => document.querySelector(item.href)).filter(Boolean) as HTMLElement[]
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(`#${entry.target.id}`)
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+
+  sections.forEach(section => observer.observe(section))
+
+  return () => {
+    sections.forEach(section => observer.unobserve(section))
+  }
+}, [])
+
+
+
 
   // Handle smooth scrolling with GSAP
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -64,7 +93,7 @@ export default function Header() {
       
       if (targetSection) {
         gsap.to(window, {
-          duration: 1,
+          duration: 0.25,
           scrollTo: {
             y: targetSection,
             offsetY: 80 // Offset for header height
@@ -98,7 +127,9 @@ export default function Header() {
               key={index}
               href={item.href}
               onClick={(e) => handleNavClick(e, item.href)}
-              className="text-sm font-medium text-gray-300 hover:text-[#ff4500] transition-colors"
+              className={`text-sm font-medium transition-colors ${
+                activeSection === item.href ? "text-[#ff4500]" : "text-gray-300 hover:text-[#ff4500]"
+              }`}
             >
               {item.label}
             </a>

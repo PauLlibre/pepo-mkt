@@ -14,8 +14,7 @@ export default function Footer() {
                 <span className="text-[#ff4500]">ALT</span>UUM
               </h2>
               <p className="text-gray-400 max-w-md">
-                Agencia de Marketing Digital especializada en estrategias personalizadas que generan resultados medibles
-                y un ROI excepcional.
+                Convertimos procesos manuales en automatizaciones inteligentes y tus objetivos en logros reales.
               </p>
               <div className="flex space-x-4">
                 {/* <a
@@ -35,17 +34,17 @@ export default function Footer() {
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a
-                  href="mailto:josepballes@altuum.com"
+                  href="mailto:josepbelles@altuum.com"
                   className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#ff4500]/20 transition-colors"
                 >
                   <Mail className="h-5 w-5" />
                 </a>
-                <a
+                {/* <a
                   href="https://www.facebook.com/profile.php?id=61571638162140"
                   className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#ff4500]/20 transition-colors"
                 >
                   <Facebook className="h-5 w-5" />
-                </a>
+                </a> */}
               </div>
             </div>
           </AnimatedSection>
@@ -66,11 +65,20 @@ export default function Footer() {
 
           <AnimatedSection direction="up" delay={0.4} className="space-y-6">
             <h3 className="text-lg font-semibold">Contacto</h3>
-            <ul className="space-y-3 text-gray-400">
-              <li>Barcelona, España</li>
-              <li>+34 633 661 562</li>
-              <li>josepballes@altuum.com</li>
+            <ul className="space-y-6">
+              <li>
+                <p className="text-white font-bold text-lg">Josep:</p>
+                <p className="text-gray-400">+34 690 94 89 05</p>
+                <p className="text-gray-400">josepbelles@altuum.com</p>
+              </li>
+              <li>
+                <p className="text-white font-bold text-lg">Nil:</p>
+                <p className="text-gray-400">611 82 95 21</p>
+                <p className="text-gray-400">nilgarcia@altuum.com</p>
+              </li>
             </ul>
+
+
 
             {/* <div className="pt-4">
               <h3 className="text-lg font-semibold mb-3">Newsletter</h3>

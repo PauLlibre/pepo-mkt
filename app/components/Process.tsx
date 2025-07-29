@@ -15,53 +15,53 @@ if (typeof window !== "undefined") {
 const PROCESS_STEPS = [
   {
     id: 1,
-    title: "Análisis y Estrategia",
+    title: "Análisis con IA y datos reales",
     description:
-      "Estudiamos tu negocio, mercado y competencia para diseñar una estrategia personalizada que maximice resultados.",
+      "Combinamos datos y tecnología para entender bien tu negocio y crear una estrategia de automatización a medida que realmente funcione.",
     icon: <Lightbulb className="h-6 w-6" />,
     color: "from-orange-500 to-red-500",
     features: [
-      "Análisis de mercado y competencia",
+      "Recolección de datos internos",
       "Definición de objetivos SMART",
-      "Investigación de palabras clave",
-      "Auditoría digital completa",
+      "Análisis de riesgos y viabilidad "
     ],
   },
   {
     id: 2,
-    title: "Implementación",
+    title: "Integración Inteligente",
     description:
-      "Ejecutamos la estrategia con precisión, optimizando cada canal para alcanzar a tu audiencia ideal y generar conversiones.",
+      "Utilizando tecnología punta en el sector, integramos la IA directamente en tu flujo de trabajo, liberando tiempo valioso y optimizando cada proceso para que trabajes más rápido y mejor.",
     icon: <Zap className="h-6 w-6" />,
     color: "from-red-500 to-purple-500",
     features: [
-      "Campañas personalizadas",
-      "Optimización SEO/SEM",
-      "Gestión de redes sociales",
-      "Desarrollo de contenido estratégico",
+      "Primera toma de contacto con la IA",
+      "Puesta en marcha del flujo automatizado",
+      "Mantenimiento y optimización continua"
     ],
   },
   {
     id: 3,
     title: "Medición y Optimización",
     description:
-      "Analizamos los resultados en tiempo real para optimizar continuamente y maximizar el retorno de inversión.",
+      "Monitorizamos resultados en tiempo real con IA para ajustar y mejorar continuamente, asegurando el máximo rendimiento y eficiencia de tus automatizaciones.",
     icon: <LineChart className="h-6 w-6" />,
     color: "from-purple-500 to-blue-500",
-    features: ["Monitoreo en tiempo real", "Informes detallados", "Optimización continua", "Análisis de ROI"],
+    features: [
+      "Análisis de flujos automatizados para detectar y corregir fallos", 
+      "Optimización continua de triggers y workflows para maximizar eficiencia", 
+      "Actualización constante de modelos IA para mejorar resultados"],
   },
   {
     id: 4,
     title: "Crecimiento y Escalabilidad",
     description:
-      "Ampliamos las estrategias exitosas para escalar tus resultados y mantener un crecimiento sostenible a largo plazo.",
+      "Puntuación final del rendimiento de los asistentes y planificación para escalar y sumar más, si hace falta. La IA no tiene límites, y tus automatizaciones tampoco.",
     icon: <TrendingUp className="h-6 w-6" />,
     color: "from-blue-500 to-teal-500",
     features: [
-      "Escalado de campañas exitosas",
-      "Exploración de nuevos canales",
-      "Estrategias de retención",
-      "Planificación a largo plazo",
+      "Exploración gratuita de nuevos asistentes",
+      "Recomendación del siguiente asistente más eficiente",
+      "Planificación a largo plazo para mantenerte a la vanguardia"
     ],
   },
 ]
@@ -163,14 +163,22 @@ export default function Process() {
     stepsRef.current[index] = el;
     return undefined; // Return void to satisfy the LegacyRef type
   }
+  // Puedes colocar esto justo antes del return o arriba del componente:
+  const STEP_POSITIONS: { [key: number]: string } = {
+    1: "-left-[80px]",         // Paso 1 sin desplazamiento
+    2: "-left-[35px]",         // Paso 2: mueve 1rem a la derecha
+    3: "left-[15px]",        // Paso 3: mueve 0.5rem a la izquierda
+    4: "left-[80px]",    // Paso 4: mueve 20px a la derecha
+  }
+
 
   return (
-    <div id="process" ref={processRef} className="w-full relative">
+    <div id="process" ref={processRef} className="w-full relative scroll-mt-32 min-h-[80vh] min-h-screen">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/40 to-black/0 pointer-events-none"></div>
 
       {/* Fixed timeline header for desktop */}
-      <div className="hidden lg:block sticky top-20 z-30 bg-black/80 backdrop-blur-md py-4 border-b border-white/10">
+      <div className="hidden lg:block sticky top-16 z-30 bg-black/80 backdrop-blur-md py-4 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative flex justify-between" id="timeline-header">
             {/* Background line */}
@@ -186,32 +194,36 @@ export default function Process() {
             {PROCESS_STEPS.map((step) => (
               <div
                 key={step.id}
-                className="relative z-10 flex flex-col items-center cursor-pointer group"
+                className={`
+                  relative z-10 flex flex-col items-center cursor-pointer group
+                  ${STEP_POSITIONS[step.id] || ""}
+                `}
                 onClick={() => handleStepClick(step.id)}
               >
                 <div
                   className={`
-                  w-10 h-10 rounded-full flex items-center justify-center mb-3
-                  transition-all duration-300 border-2
-                  ${
-                    activeStep >= step.id
-                      ? "bg-gradient-to-br " + step.color + " border-white"
-                      : "bg-gray-800 border-gray-600 group-hover:border-gray-400"
-                  }
-                `}
+                    w-10 h-10 rounded-full flex items-center justify-center mb-3
+                    transition-all duration-300 border-2
+                    ${
+                      activeStep >= step.id
+                        ? "bg-gradient-to-br " + step.color + " border-white"
+                        : "bg-gray-800 border-gray-600 group-hover:border-gray-400"
+                    }
+                  `}
                 >
                   {step.icon}
                 </div>
                 <div
                   className={`
-                  text-sm font-medium transition-colors duration-300
-                  ${activeStep >= step.id ? "text-white" : "text-gray-400 group-hover:text-gray-300"}
-                `}
+                    text-sm font-medium transition-colors duration-300
+                    ${activeStep >= step.id ? "text-white" : "text-gray-400 group-hover:text-gray-300"}
+                  `}
                 >
                   {step.title}
                 </div>
               </div>
             ))}
+
           </div>
         </div>
       </div>
@@ -288,13 +300,6 @@ export default function Process() {
                       </h3>
 
                       <p className="text-xl text-gray-300">{step.description}</p>
-
-                      <div className="pt-4">
-                        <button className="flex items-center text-[#ff4500] font-medium group">
-                          Saber más sobre este paso
-                          <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                        </button>
-                      </div>
                     </div>
 
                     <div className="bg-black/20 backdrop-blur-sm rounded-xl border border-white/10 p-8">
@@ -313,21 +318,6 @@ export default function Process() {
                         ))}
                       </ul>
 
-                      <div className="mt-8 pt-8 border-t border-white/10">
-                        <div className="flex items-center">
-                          <Target className="h-6 w-6 text-[#ff4500] mr-3" />
-                          <span className="text-sm">
-                            Este paso es crucial para{" "}
-                            {step.id === 1
-                              ? "establecer las bases de tu estrategia"
-                              : step.id === 2
-                                ? "ejecutar acciones efectivas"
-                                : step.id === 3
-                                  ? "asegurar resultados óptimos"
-                                  : "mantener el crecimiento a largo plazo"}
-                          </span>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </AnimatedSection>

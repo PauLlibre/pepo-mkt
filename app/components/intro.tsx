@@ -23,14 +23,14 @@ export default function Intro() {
 
               <TextReveal className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
                 <h1>
-                  Impulsa tu <span className="text-[#ff4500]">Presencia Digital</span> al Siguiente Nivel
+                  Activa el <span className="text-[#ff4500]">Modo futuro</span>: Automatiza tu negocio con IA
                 </h1>
               </TextReveal>
 
               <AnimatedSection direction="up" delay={0.3} className="text-xl text-gray-300 mt-6">
                 <p>
-                  Estrategias personalizadas que generan resultados medibles. Optimizamos cada aspecto de tu marketing
-                  digital para maximizar tu ROI.
+                  Deja que la IA haga el trabajo pesado: Automatizamos tareas, decisiones y flujos para
+                  que tu negocio crezca en piloto automático, con métricas que hablan por sí solas.
                 </p>
               </AnimatedSection>
 
@@ -38,26 +38,29 @@ export default function Intro() {
                 <BookACallButton />
               </AnimatedSection>
 
-              <AnimatedSection direction="up" delay={0.7} className="pt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div className="flex items-center gap-3">
+              <AnimatedSection direction="up" delay={0.7} className="pt-12 grid grid-cols-1 gap-6">
+                <div className="flex items-center gap-3 pb-[5px]">
                   <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ff4500]/20">
                     <TrendingUp className="h-5 w-5 text-[#ff4500]" />
                   </div>
-                  <span className="text-sm font-medium">ROI Garantizado</span>
+                  <span className="text-sm font-medium">Resultados Medibles</span>
                 </div>
-                <div className="flex items-center gap-3">
+                
+                <div className="flex items-center gap-3 pb-[5px]">
                   <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ff4500]/20">
                     <Search className="h-5 w-5 text-[#ff4500]" />
                   </div>
-                  <span className="text-sm font-medium">SEO Avanzado</span>
+                  <span className="text-sm font-medium">Procesos Inteligentes</span>
                 </div>
-                <div className="flex items-center gap-3">
+                
+                <div className="flex items-center gap-3 pb-[5px]">
                   <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ff4500]/20">
                     <BarChart2 className="h-5 w-5 text-[#ff4500]" />
                   </div>
-                  <span className="text-sm font-medium">Análisis Detallado</span>
+                  <span className="text-sm font-medium">Análisis Potenciado por IA</span>
                 </div>
               </AnimatedSection>
+
             </div>
           </div>
         </AnimatedSection>
