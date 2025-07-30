@@ -54,12 +54,11 @@ export default function CalendlyScheduler() {
       </TextReveal>
 
       <div ref={calendarRef} className="my-4 sm:my-6 md:my-8 w-full flex justify-center px-4 sm:px-6 md:px-8">
-        <div className="h-[500px] sm:h-[600px] md:h-[700px] w-full max-w-4xl bg-white/5 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 overflow-hidden">
+        <div className="min-h-[700px] w-full max-w-4xl bg-white/5 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 overflow-hidden">
           <InlineWidget
             url="https://calendly.com/josepbelles-altuum/30min"
             styles={{
               height: "100%",
-              minHeight: "500px",
               width: "100%",
             }}
             pageSettings={{
@@ -76,6 +75,7 @@ export default function CalendlyScheduler() {
           />
         </div>
       </div>
+
     </section>
   )
 }
